@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content%}
+        {% if messages %}
+       <div class='row'>
+        <div class="col-sm-12">
+          {% for message in messages %}
+    
+          <p {% if message.tags == 'success' %} class="alert alert-success" {% endif %}>
+             {{ message}}
+          </p>
+          {% endfor %}
+        </div>
+       </div>
+     {% endif %}
+<h1>Join Now</h1>
+<form method='POST' action=''>{% csrf_token%}
+    {{form.as_p}}
+    <input type='submit' class="btn btn-success">
+</form>
+{% endblock content %}

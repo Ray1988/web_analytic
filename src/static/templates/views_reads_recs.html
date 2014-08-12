@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block views_reads_recs%}
+<div class="chartWrapper">
+     <ul class="chartTabs u-clearfix ">
+        
+        <li id="views_li"  data-action="switch-graph" data-action-value="views"><button id="views_button"><span class="stats-totalNumber js-totalViews">Views</span> <span class="nav-tab-abbr date-range"> Top {{top_views_stories|length}}</span></button></li>
+        <li id="reads_li" data-action="switch-graph" data-action-value="reads" class=""><button id='reads_button'><span class="stats-totalNumber js-totalReads">Reads</span> <span class="nav-tab-abbr date-range"> Top {{top_reads_stories|length}}</span></button></li>
+        <li id="recs_li" data-action="switch-graph" data-action-value="votes" class=""><button id='recs_button'><span class="stats-totalNumber js-totalVotes">Recs</span>  <span class="nav-tab-abbr date-range"> Top {{top_recs_stories|length}}</span></button></li>
+     </ul>
+     <br>
+     <table id="top_recs_table" class="table borderless text-center">
+        <tbody>
+    
+     {% for story_info in top_views_stories %}
+        <tr>
+
+        
+        {%for key, value in story_info.items%}
+            
+                <td>{{forloop.counter}}</td><td>{{key}}</td><td>{{value}}</td>
+            
+        {%endfor%}
+        
+        </tr>
+     {%endfor%}
+        <tr>
+            <th>Rank</th><th>Story name</th><th>Total recs</th>
+        </tr>
+        </tbody>
+     </table>
+
+     <table id="top_reads_table" class="table borderless text-center">
+        <tbody>
+    
+         {% for story_info in top_reads_stories %}
+         <tr>
+
+        
+         {%for key, value in story_info.items%}
+            
+                <td>{{forloop.counter}}</td><td>{{key}}</td><td>{{value}}</td>
+            
+         {%endfor%}
+        
+         </tr>
+     {%endfor%}
+        <tr>           
+            <th>Rank</th><th>Story name</th><th>Total reads</th>
+        </tr>
+        </tbody>
+     </table>
+
+     <table id="top_views_table" class="table borderless text-center">
+        <tbody>
+    
+     {% for story_info in top_recs_stories %}
+        <tr>
+
+        
+        {%for key, value in story_info.items%}
+            
+                <td>{{forloop.counter}}</td><td>{{key}}</td><td>{{value}}</td>
+            
+        {%endfor%}
+        
+        </tr>
+     {%endfor%}
+        <tr>
+            <th>Rank</th><th>Story name</th><th>Total views</th>
+        </tr>
+        </tbody>
+     </table>
+      
+   
+</div>
+{%endblock%}
+
+{%block cubism%}
+
+{%endblock%}

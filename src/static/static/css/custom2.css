@@ -1,0 +1,13 @@
+.borderless td {
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom: 1px dotted;
+
+}
+
+.borderless th{
+     border: none !important; 
+     text-align:center;  
+}
+
